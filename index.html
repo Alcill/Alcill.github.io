@@ -68,8 +68,8 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;o
 .hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(130% 78% at 50% 4%,transparent 30%,var(--void) 84%)}
 .hero::after{content:"";position:absolute;left:50%;top:-14%;width:min(900px,120vw);aspect-ratio:1;transform:translateX(-50%);z-index:0;pointer-events:none;
   background:radial-gradient(circle,rgba(93,143,240,.16),transparent 62%);filter:blur(30px)}
-h1{font-family:var(--display);font-size:clamp(42px,6.9vw,86px);line-height:.99;letter-spacing:-.042em;font-weight:800;margin:0 0 28px;max-width:15ch}
-h1 .w{display:inline-block;overflow:hidden;vertical-align:bottom}
+h1{font-family:var(--display);font-size:clamp(38px,5.6vw,68px);line-height:1.06;letter-spacing:-.032em;font-weight:800;margin:0 0 26px;max-width:19ch;text-wrap:balance}
+h1 .w{display:inline-block;overflow:hidden;vertical-align:bottom;padding:.02em .09em .16em;margin:0 -.09em -.16em}
 h1 .w>span{display:inline-block;will-change:transform}
 h1 em{font-style:italic;font-weight:700;color:var(--amber);position:relative}
 .lede{font-size:clamp(17px,1.95vw,21px);color:var(--ink-2);margin:0 0 38px;max-width:56ch}
@@ -125,9 +125,10 @@ h2{font-family:var(--display);font-size:clamp(30px,4.6vw,52px);line-height:1.04;
 .svc li{position:relative;padding-left:28px;font-size:15.2px;color:var(--ink-2)}
 .svc li svg{position:absolute;left:0;top:3px;width:16px;height:16px;color:var(--steel)}
 
-/* seguridad */
-#seguridad{overflow:hidden}
-#lattice{position:absolute;right:-6%;top:50%;transform:translateY(-50%);width:min(560px,52vw);aspect-ratio:1;z-index:0;opacity:.75;pointer-events:none}
+/* retícula 3D */
+#problema{overflow:hidden}
+#lattice{position:absolute;left:50%;top:54%;transform:translate(-50%,-50%);width:min(820px,105vw);aspect-ratio:1;max-width:none;z-index:0;opacity:.55;pointer-events:none}
+#extras{overflow:hidden}
 .sec-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:34px}
 .sec-item{border:1px solid var(--line);border-radius:10px;padding:22px 24px;background:rgba(14,20,32,.66);backdrop-filter:blur(6px);transition:border-color .3s,transform .3s}
 .sec-item:hover{border-color:rgba(93,143,240,.5);transform:translateY(-3px)}
@@ -136,6 +137,10 @@ h2{font-family:var(--display);font-size:clamp(30px,4.6vw,52px);line-height:1.04;
 .sec-item p{margin:0;font-size:14.8px;color:var(--ink-2)}
 .badge{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--steel);border:1px solid rgba(93,143,240,.4);background:var(--steel-soft);border-radius:99px;padding:7px 15px;margin-bottom:20px}
 .badge svg{width:13px;height:13px}
+.badge.alt{color:var(--amber);border-color:rgba(245,169,63,.4);background:var(--amber-soft)}
+.xhead{border-top:1px solid var(--line);padding-top:30px;margin-bottom:6px}
+.xtitle{font-family:var(--display);font-size:clamp(23px,3vw,32px);line-height:1.1;letter-spacing:-.026em;font-weight:700;margin:14px 0 12px}
+.xlede{margin:0;color:var(--ink-2);font-size:16.5px;max-width:64ch}
 
 /* alcance */
 .two{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:start}
@@ -191,7 +196,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 26px;justify-content:space-betw
   .svc-body{grid-template-columns:1fr;gap:22px}
   .price{margin-left:0;text-align:left;width:100%}
   .sec-grid{grid-template-columns:1fr}
-  #lattice{display:none}
+  #lattice{width:min(560px,130vw);opacity:.4}
   .two{grid-template-columns:1fr;gap:30px}
   .rules{grid-template-columns:1fr}
   .bio{grid-template-columns:1fr;gap:26px}
@@ -217,7 +222,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 26px;justify-content:space-betw
     </a>
     <nav>
       <a class="lnk" href="#servicios">Servicios</a>
-      <a class="lnk" href="#seguridad">Seguridad</a>
+      <a class="lnk" href="#extras">Seguridad</a>
       <a class="lnk" href="#metodo">Método</a>
       <a class="btn btn-p" data-mag href="https://wa.me/59168925380?text=Hola%2C%20te%20escribo%20por%20tu%20p%C3%A1gina." data-ico="message-circle">Escribir</a>
     </nav>
@@ -228,9 +233,9 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 26px;justify-content:space-betw
   <div class="hero">
     <canvas id="scene" aria-hidden="true"></canvas>
     <div class="wrap">
-      <p class="eyebrow">Optimización · Mantenimiento · Seguridad</p>
-      <h1 data-split>En siete días sabrá exactamente por qué su sistema está <em>lento</em>.</h1>
-      <p class="lede">Y va a saberlo con números medidos, no con opiniones. Diagnóstico, corrección y despliegue de sistemas web <b>que ya están en producción</b>, con usuarios reales trabajando adentro.</p>
+      <p class="eyebrow">Mantenimiento y optimización de sistemas web · Santa Cruz</p>
+      <h1 data-split>En siete días sabrá por qué su sistema está <em>lento</em>.</h1>
+      <p class="lede">Servicio para <b>empresas que ya tienen un sistema funcionando</b> y no tienen a nadie que lo mantenga. Diagnóstico con números medidos, corrección y despliegue, sobre sistemas en producción con usuarios reales adentro.</p>
       <div class="actions">
         <a class="btn btn-p" data-mag href="https://wa.me/59168925380?text=Hola%2C%20te%20escribo%20por%20tu%20p%C3%A1gina." data-ico="message-circle">Pedir el diagnóstico</a>
         <a class="btn btn-s" data-mag href="#servicios" data-ico="arrow-down">Ver qué incluye</a>
@@ -251,6 +256,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 26px;justify-content:space-betw
   </div>
 
   <section id="problema">
+    <canvas id="lattice" aria-hidden="true"></canvas>
     <div class="wrap">
       <div class="shead">
         <p class="eyebrow rv">El problema real</p>
@@ -351,16 +357,19 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 26px;justify-content:space-betw
     </div>
   </section>
 
-  <section id="seguridad">
-    <canvas id="lattice" aria-hidden="true"></canvas>
+  <section id="extras">
     <div class="wrap">
       <div class="shead">
-        <p class="eyebrow rv">Seguridad de aplicaciones web</p>
-        <h2 class="rv">La mayoría de los sistemas en Bolivia nunca fueron revisados</h2>
-        <p class="intro rv">No porque nadie quiera: porque revisar un sistema exige entrar a él, y entrar a un sistema sin un permiso escrito es delito. Por eso el servicio empieza por el papel y no por la herramienta.</p>
+        <p class="eyebrow rv">Servicios extras</p>
+        <h2 class="rv">Ciberseguridad y desarrollo, cuando el proyecto lo pide</h2>
+        <p class="intro rv">El foco está en el rendimiento y el mantenimiento. Estos dos servicios se contratan aparte, normalmente sobre un sistema que ya se está manteniendo.</p>
       </div>
 
-      <span class="badge rv" data-ico="calendar-clock">Servicio en incorporación · agenda abierta</span>
+      <div class="xhead rv">
+        <span class="badge" data-ico="shield-check">01 · Principal</span>
+        <h3 class="xtitle">Seguridad de aplicaciones web</h3>
+        <p class="xlede">La mayoría de los sistemas en Bolivia nunca fueron revisados. No porque nadie quiera: revisar un sistema exige entrar a él, y entrar sin un permiso escrito es delito. Por eso el servicio empieza por el papel y no por la herramienta.</p>
+      </div>
 
       <div class="sec-grid">
         <div class="sec-item rv">
@@ -386,6 +395,30 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 26px;justify-content:space-betw
         <div class="sec-item rv">
           <h4 data-ico="siren">Plan de respuesta a incidentes</h4>
           <p>Qué se hace, en qué orden y quién decide, escrito antes de que pase. El día del incidente nadie lee un manual nuevo.</p>
+        </div>
+      </div>
+
+      <div class="xhead rv" style="margin-top:62px">
+        <span class="badge alt" data-ico="code-xml">02 · Complementario</span>
+        <h3 class="xtitle">Desarrollo de software</h3>
+        <p class="xlede">No es el foco de este trabajo y conviene decirlo: hay mucha gente construyendo software y cada vez más herramientas que lo hacen rápido. Lo escaso no es construir un sistema, es que alguien lo sostenga después.</p>
+      </div>
+      <div class="sec-grid">
+        <div class="sec-item rv">
+          <h4 data-ico="layers">Módulos sobre un sistema existente</h4>
+          <p>Funcionalidad nueva dentro de un sistema que ya está en producción, respetando su arquitectura y sin romper lo que ya funciona.</p>
+        </div>
+        <div class="sec-item rv">
+          <h4 data-ico="database">Sistemas web a medida</h4>
+          <p>Laravel y PostgreSQL sobre Linux. Con las mismas reglas del resto: respaldo, reversión y documentación desde el primer despliegue.</p>
+        </div>
+        <div class="sec-item rv">
+          <h4 data-ico="smartphone">Aplicaciones móviles</h4>
+          <p>React Native, con gestión de la publicación en tienda incluida.</p>
+        </div>
+        <div class="sec-item rv">
+          <h4 data-ico="cpu">Integración con sensores e IoT</h4>
+          <p>Captura de datos de dispositivos en campo y su llegada ordenada a una base de datos consultable.</p>
         </div>
       </div>
     </div>
